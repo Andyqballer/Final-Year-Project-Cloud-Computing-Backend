@@ -25,7 +25,7 @@
                         <form class='w-[95%] mx-auto' @submit.prevent="signup">
                             <div class='w-full mb-0 3xl:pb-[2rem] 2xl:pb-[1.5rem] xl:pb-[1rem] md:pb-[0.8rem] pb-[1rem]'>
                                 <fwb-input class="mb-0 rounded-none outline-none border-none" id="first_name"
-                                    v-model="formValues.first_name" label="Username" placeholder="Enter your username"
+                                    v-model="formValues.username" label="Username" placeholder="Enter your username"
                                     type='text' size="md" required />
                             </div>
                             <div class='w-full mb-0 3xl:pb-[2rem] 2xl:pb-[1.5rem] xl:pb-[1rem] md:pb-[0.8rem] pb-[1rem]'>
@@ -39,7 +39,7 @@
                             </div>
                             <div
                                 class='w-full mb-0 3xl:pb-[2rem] 2xl:pb-[1.5rem] xl:pb-[1rem] md:pb-[0.8rem] pb-[1rem] flex flex-col'>
-                                <fwb-input class="mb-0  rounded-none outline-none border-none" v-model="formValues.password1"
+                                <fwb-input class="mb-0  rounded-none outline-none border-none" v-model="formValues.role"
                                     type='text' label="Role" placeholder="Enter your Role" size="md" required />
                             </div>
                             <div class='w-full 3xl:pt-[2rem] 2xl:pt-[1.5rem] xl:pt-[1.5rem] md:pt-[0.8rem] pt-[1rem]'>
@@ -130,11 +130,10 @@ export default {
         const router = useRouter();
         const state = reactive({
             formValues: {
+                username: '',
                 email: '',
-                first_name: '',
-                last_name: '',
-                password1: '',
-                password2: '',
+                password: '',
+                role: '',
             },
             isLoading: false
         })

@@ -27,7 +27,7 @@
                         <div class='w-full mb-0 lg:pb-0 md:pb-[2rem] pb-[1rem]'>
                             <fwb-input
                                 class="mb-0 3xl:py-[1.3rem] 2xl:py-[1rem] xl:py-[1rem] lg:py-[0.6rem] rounded-none outline-none border-none"
-                                v-model="formValues.email" type='email' label="Email" placeholder="Enter your email"
+                                v-model="formValues.username" type='username' label="Username" placeholder="Enter your username"
                                 required />
                         </div>
                         <div class='w-full mb-0 lg:pb-0 pb-[0.5rem] flex flex-col'>
