@@ -1,26 +1,46 @@
+<script setup>
+import { RouterView } from 'vue-router'
+
+</script>
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <RouterView />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  export default {
+    mounted() {
+    if (
+      window.location.pathname === '/' ||
+      window.location.pathname === '/login' ||
+      window.location.pathname === '/register' ||
+      window.location.pathname === '/confirm-email' ||
+      window.location.pathname === '/forget-password' ||
+      window.location.pathname === '/resend-code' ||
+      window.location.pathname === '/confirm-forget-password'
+    ) {
+      if (localStorage.getItem('isLoggedIn')) {
+        this.$store.dispatch('getUserProfile')
+      }
+    }
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+    if (
+      window.location.pathname !== '/' ||
+      window.location.pathname !== '/login' ||
+      window.location.pathname !== '/register' ||
+      window.location.pathname !== '/confirm-email' ||
+      window.location.pathname !== '/forget-password' ||
+      window.location.pathname !== '/resend-code' ||
+      window.location.pathname !== '/confirm-forget-password'
+    ) {
+      if (localStorage.getItem('isLoggedIn')) {
+        this.$store.dispatch('getUserProfile')
+      }
+    }
   }
-}
+  }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+
 </style>
